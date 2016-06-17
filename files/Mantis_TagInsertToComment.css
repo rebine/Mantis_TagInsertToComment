@@ -1,0 +1,51 @@
+/* 文書タグのスタイルシート*/
+div.Mantis_TagInsertToComment_menu{
+            margin: 0% 0% 0% 25%;
+}
+pre {
+            margin: 0px 10px 0px 10px;
+            border: solid 1px slateblue;
+           padding: 5px;
+  background-color: GhostWhite;
+}
+blockquote { 
+            margin: 5px;
+            border: solid 2px LightSalmon;
+           padding: 5px;
+  background-color: FloralWhite;
+}
+strong {
+             color: red;
+}
+em { 
+             color: blue;
+}
+
+/* ボタンのスタイルシート*/
+input#Mantis-TagInsertToComment_pre{
+       margin-left: 10px;
+  background-color: GhostWhite;
+}
+input#Mantis-TagInsertToComment_blockquote{
+       margin-left: 10px;
+  background-color: FloralWhite;
+}
+input#Mantis-TagInsertToComment_code{
+       margin-left: 10px;
+}
+input#Mantis-TagInsertToComment_strong{
+       margin-left: 10px;
+             color: red;
+       font-weight: bold;
+}
+input#Mantis-TagInsertToComment_em{
+       margin-left: 10px;
+             color: blue;
+        font-style: italic;
+}
+input#Mantis-TagInsertToComment_image{
+       margin-left: 10px;
+}
+input#Mantis-TagInsertToComment_scroll{
+       margin-left: 10px;
+}
