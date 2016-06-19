@@ -53,18 +53,6 @@ class Mantis_TagInsertToCommentPlugin extends MantisPlugin{
    */
   function display_button( $p_event ,$p_bug) {
    
-    $display_field =<<< _HTML_
-      <div class="Mantis_TagInsertToComment_menu">
-                <input type="button" value="pre(ALT+P)"        class="Mantis_TagInsertToComment" id="Mantis-TagInsertToComment_pre" >
-                <input type="button" value="blockquote(ALT+B)" class="Mantis_TagInsertToComment" id="Mantis-TagInsertToComment_blockquote" >
-                <input type="button" value="code"              class="Mantis_TagInsertToComment" id="Mantis-TagInsertToComment_code" >
-                <input type="button" value="strong"            class="Mantis_TagInsertToComment" id="Mantis-TagInsertToComment_strong" >
-                <input type="button" value="em"                class="Mantis_TagInsertToComment" id="Mantis-TagInsertToComment_em" >
-                <input type="button" value="image"             class="Mantis_TagInsertToComment" id="Mantis-TagInsertToComment_image" >
-                <input type="button" value="scroll TOP↑"      class="Mantis_TagInsertToComment" id="Mantis-TagInsertToComment_scroll" >
-       </div>
-_HTML_;
-    echo $display_field;
 
   } // f display_button 
 
