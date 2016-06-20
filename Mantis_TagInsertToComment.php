@@ -52,7 +52,12 @@ class Mantis_TagInsertToCommentPlugin extends MantisPlugin{
    * @return void
    */
   function display_button( $p_event ,$p_bug) {
+
+    $display_button =<<< _HTML_
+
+_HTML_;
    
+    echo $display_button;
 
   } // f display_button 
 
