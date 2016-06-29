@@ -47,57 +47,35 @@
     //var tr_obj = document.evaluate('/html/body/div[@id=mantis]/div[@id=content]/div[@id=bugnote_add_open]/form[@id=bugnoteadd]/table/tbody/tr[@class=row-2]/td', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
     var bugnoteadd_obj   = document.getElementById("bugnoteadd");
     var bugnoteadd_tbody = bugnoteadd_obj.children[2].children[1].children[0].children[1];
+
+    // scrollはonclickの追加なので配列に含めない。
+    var ElementArray = [
+           ["pre","pre(ALT+p)"],
+           ["blockquote","blockquote(ALT+B)"],
+           ["code","code"],
+           ["strong","strong"],
+           ["em","em"],
+           ["image","image"]
+        ];
+
   
     var newNode = document.createElement('div');
         newNode.className   = "Mantis_TagInsertToComment_menu";
-    var inputNode = document.createElement('input');
-        inputNode.type      = "button";
-        inputNode.className = "Mantis_TagInsertToComment";
-        inputNode.id        = "Mantis-TagInsertToComment_pre";
-        inputNode.value     = "pre(ALT+P)";
-        inputNode.addEventListener("click",mantis_taginserttocomment_insert_textarea);
-        newNode.appendChild(inputNode);
-  
-    var inputNode = document.createElement('input');
-        inputNode.type      = "button";
-        inputNode.className = "Mantis_TagInsertToComment";
-        inputNode.id        = "Mantis-TagInsertToComment_blockquote";
-        inputNode.value     = "blockquote(ALT+B)";
-        inputNode.addEventListener("click",mantis_taginserttocomment_insert_textarea);
-        newNode.appendChild(inputNode);
-  
-    var inputNode = document.createElement('input');
-        inputNode.type      = "button";
-        inputNode.className = "Mantis_TagInsertToComment";
-        inputNode.id        = "Mantis-TagInsertToComment_code";
-        inputNode.value     = "code";
-        inputNode.addEventListener("click",mantis_taginserttocomment_insert_textarea);
-        newNode.appendChild(inputNode);
-    
-    var inputNode = document.createElement('input');
-        inputNode.type      = "button";
-        inputNode.className = "Mantis_TagInsertToComment";
-        inputNode.id        = "Mantis-TagInsertToComment_strong";
-        inputNode.value     = "strong";
-        inputNode.addEventListener("click",mantis_taginserttocomment_insert_textarea);
-        newNode.appendChild(inputNode);
-  
-    var inputNode = document.createElement('input');
-        inputNode.type      = "button";
-        inputNode.className = "Mantis_TagInsertToComment";
-        inputNode.id        = "Mantis-TagInsertToComment_em";
-        inputNode.value     = "em";
-        inputNode.addEventListener("click",mantis_taginserttocomment_insert_textarea);
-        newNode.appendChild(inputNode);
-  
-    var inputNode = document.createElement('input');
-        inputNode.type      = "button";
-        inputNode.className = "Mantis_TagInsertToComment";
-        inputNode.id        = "Mantis-TagInsertToComment_image";
-        inputNode.value     = "image";
-        inputNode.addEventListener("click",mantis_taginserttocomment_insert_textarea);
-        newNode.appendChild(inputNode);
-  
+
+    i_length = ElementArray.length;
+    for(i=0;i<i_length;i++){
+      
+        var inputNode = document.createElement('input');
+            inputNode.type      = "button";
+            inputNode.className = "Mantis_TagInsertToComment";
+            inputNode.id        = "Mantis-TagInsertToComment_" + ElementArray[i][0];
+            inputNode.value     = ElementArray[i][0];
+            inputNode.addEventListener("click",mantis_taginserttocomment_insert_textarea);
+            newNode.appendChild(inputNode);
+
+    } // for i_lenght
+
+    // scroll ボタン
     var inputNode = document.createElement('input');
         inputNode.type      = "button";
         inputNode.className = "Mantis_TagInsertToComment";
@@ -106,7 +84,7 @@
         inputNode.onclick   = function(){window.scrollTo(0,0); };
         newNode.appendChild(inputNode);
   
-        bugnoteadd_tbody.insertBefore(newNode,bugnoteadd_tbody.children[0]);
+    bugnoteadd_tbody.insertBefore(newNode,bugnoteadd_tbody.children[0]);
   
     } // window onload
   , false); // window addEventListener
