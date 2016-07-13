@@ -23,29 +23,36 @@ em {
 
 /* ボタンのスタイルシート*/
 input#Mantis-TagInsertToComment_pre{
+           padding: 5px;
        margin-left: 10px;
   background-color: GhostWhite;
 }
 input#Mantis-TagInsertToComment_blockquote{
+           padding: 5px;
        margin-left: 10px;
   background-color: FloralWhite;
 }
 input#Mantis-TagInsertToComment_code{
+           padding: 5px;
        margin-left: 10px;
 }
 input#Mantis-TagInsertToComment_strong{
+           padding: 5px;
        margin-left: 10px;
              color: red;
        font-weight: bold;
 }
 input#Mantis-TagInsertToComment_em{
+           padding: 5px;
        margin-left: 10px;
              color: blue;
         font-style: italic;
 }
 input#Mantis-TagInsertToComment_image{
+           padding: 5px;
        margin-left: 10px;
 }
 input#Mantis-TagInsertToComment_scroll{
+           padding: 5px;
        margin-left: 10px;
 }
