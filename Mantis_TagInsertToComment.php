@@ -22,11 +22,11 @@ class Mantis_TagInsertToCommentPlugin extends MantisPlugin{
 
   function hooks() {
     return array(
-      'EVENT_LAYOUT_RESOURCES'        => 'resources',                 # CSS JS include
-      'EVENT_BUGNOTE_EDIT_FORM'       => 'display_button',       # Display Insert Tags
-      'EVENT_BUGNOTE_ADD_FORM'        => 'display_button',       # Display Insert Tags
-      'EVENT_UPDATE_BUG_FORM'         => 'display_button_update',       # Display Insert Tags
-      'EVENT_REPORT_BUG_FORM'        => 'display_button_report',       # Display Insert Tags
+      'EVENT_LAYOUT_RESOURCES'  => 'resources',              # CSS JS include
+      'EVENT_BUGNOTE_EDIT_FORM' => 'display_button_comment', # Display Insert Tags
+      'EVENT_BUGNOTE_ADD_FORM'  => 'display_button_comment', # Display Insert Tags
+      'EVENT_UPDATE_BUG_FORM'   => 'display_button_report',  # Display Insert Tags
+      'EVENT_REPORT_BUG_FORM'   => 'display_button_report',  # Display Insert Tags
                 );
   } // f hooks
 
@@ -51,30 +51,24 @@ class Mantis_TagInsertToCommentPlugin extends MantisPlugin{
    * @param array   $p_attachment An attachment array 
    * @return void
    */
-  function display_button( $p_event ,$p_bug) {
+  function display_button_comment( $p_event ,$p_bug) {
 
     $display_button =<<< _HTML_
+      <input type="hidden" id="Mantis_TagInsertToComment_flag" value="bugnote">
 
 _HTML_;
    
     echo $display_button;
 
-  } // f display_button 
-
-  function display_button_update( $p_event ,$p_bug) {
-    ob_start();
-    $this->display_button ( $p_event ,$p_bug);
-    $out = ob_get_contents();
-    ob_end_clean();
-
-
-  } // f display_button_update
+  } // f display_button_comment 
 
   function display_button_report( $p_event ,$p_bug) {
-    ob_start();
-    $this->display_button ( $p_event ,$p_bug);
-    $out = ob_get_contents();
-    ob_end_clean();
+    $display_button_flag =<<< _HTML_
+      <input type="hidden" id="Mantis_TagInsertToComment_flag" value="update">
+_HTML_;
+   
+    echo $display_button_flag;
+
 
   } // f display_button_report
 

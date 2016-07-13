@@ -43,10 +43,20 @@
     } // f get_textarea_selected
 
     document.addEventListener("keydown", get_textarea_keydown, false);
+
+    // 表示されているページの種別によって挿入個所の変更
+    var page_kind  = document.getElementById("Mantis_TagInsertToComment_flag").value;
+    //console.log(page_kind);
   
-    //var tr_obj = document.evaluate('/html/body/div[@id=mantis]/div[@id=content]/div[@id=bugnote_add_open]/form[@id=bugnoteadd]/table/tbody/tr[@class=row-2]/td', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
-    var bugnoteadd_obj   = document.getElementById("bugnoteadd");
-    var bugnoteadd_tbody = bugnoteadd_obj.children[2].children[1].children[0].children[1];
+    switch(page_kind){
+      case 'update' :
+        var textarea_obj   = document.getElementById("description");
+      break;
+
+      case 'bugnote' :
+        var textarea_obj = document.getElementsByName("bugnote_text")[0];
+      break;
+    } //switch page_kind
 
     // scrollはonclickの追加なので配列に含めない。
     var ElementArray = [
@@ -69,7 +79,7 @@
             inputNode.type      = "button";
             inputNode.className = "Mantis_TagInsertToComment";
             inputNode.id        = "Mantis-TagInsertToComment_" + ElementArray[i][0];
-            inputNode.value     = ElementArray[i][0];
+            inputNode.value     = ElementArray[i][1];
             inputNode.addEventListener("click",mantis_taginserttocomment_insert_textarea);
             newNode.appendChild(inputNode);
 
@@ -84,16 +94,29 @@
         inputNode.onclick   = function(){window.scrollTo(0,0); };
         newNode.appendChild(inputNode);
   
-    bugnoteadd_tbody.insertBefore(newNode,bugnoteadd_tbody.children[0]);
+//    bugnoteadd_tbody.insertBefore(newNode,bugnoteadd_tbody.children[0]);
+    textarea_obj.parentNode.insertBefore(newNode,textarea_obj.parentNode.children[0]);
   
     } // window onload
   , false); // window addEventListener
 
   function mantis_taginserttocomment_insert_textarea(mouseevent,fromkeyboardtag){
     var return_flg = false;
-    var text_area_obj_array = document.getElementsByName("bugnote_text");
-    var text_area_obj = text_area_obj_array[0];
-    text_area_obj.focus();
+
+    // 表示されているページの種別によって挿入個所の変更
+    var page_kind  = document.getElementById("Mantis_TagInsertToComment_flag").value;
+    //console.log(page_kind);
+  
+    switch(page_kind){
+      case 'update' :
+        var textarea_obj   = document.getElementById("description");
+      break;
+
+      case 'bugnote' :
+        var textarea_obj = document.getElementsByName("bugnote_text")[0];
+      break;
+    } //switch page_kind
+    textarea_obj.focus();
 
     var selected_obj  = document.activeElement;
     if(selected_obj.selectionStart <= selected_obj.selectionEnd ){
@@ -146,8 +169,8 @@
       break;
 
       case 'code':
-        before_insert_tag = '<pre><code class="">';
-        after_insert_tag  = '</code></pre>';
+        before_insert_tag = '[code=]';
+        after_insert_tag  = '[/code]';
       break;
 
       case 'strong':
@@ -168,18 +191,18 @@
     } // switch
 
     if(return_flg){
-      text_area_obj.value = before_range + before_insert_tag + '\n' + range + after_insert_tag + '\n' + after_range ; 
+      textarea_obj.value = before_range + before_insert_tag + '\n' + range + after_insert_tag + '\n' + after_range ; 
       var CaretPosition = string_start + before_insert_tag.length + range.length + after_insert_tag.length + 1;
     }else{
-      text_area_obj.value = before_range + before_insert_tag + range + after_insert_tag + after_range ; 
+      textarea_obj.value = before_range + before_insert_tag + range + after_insert_tag + after_range ; 
       var CaretPosition = string_start + before_insert_tag.length + range.length + after_insert_tag.length ;
     } // if return_flg something
 
     if(!range){
-      text_area_obj.value = before_range + before_insert_tag + '\n' + after_insert_tag + '\n' + after_range ; 
+      textarea_obj.value = before_range + before_insert_tag + '\n' + after_insert_tag + '\n' + after_range ; 
       var CaretPosition = string_start + before_insert_tag.length + 1;
     } // if range noting
 
-    text_area_obj.setSelectionRange( CaretPosition , CaretPosition);
+    textarea_obj.setSelectionRange( CaretPosition , CaretPosition);
 
   } // f insert_textarea
