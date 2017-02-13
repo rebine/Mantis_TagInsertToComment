@@ -10,9 +10,9 @@ class Mantis_TagInsertToCommentPlugin extends MantisPlugin{
     $this->description = 'TextareaにHTMLタグを挿入するPlugin';
     $this->page = '';         
 
-    $this->version = '0.1.0';
+    $this->version = '0.2.0';
     $this->requires = array(
-      'MantisCore' => '1.3.0',
+      'MantisCore' => '2.0.0',
     );
 
     $this->author = 'Ryuji Ebine';
