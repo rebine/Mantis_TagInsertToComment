@@ -7,12 +7,14 @@ pre {
             border: solid 1px slateblue;
            padding: 5px;
   background-color: GhostWhite;
+       white-space: normal;
 }
 blockquote { 
             margin: 5px;
             border: solid 2px LightSalmon;
            padding: 5px;
   background-color: FloralWhite;
+         font-size: 13.5px;
 }
 strong {
              color: red;
