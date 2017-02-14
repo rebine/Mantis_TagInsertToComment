@@ -11,7 +11,7 @@ https://github.com/rebine/Mantis_ImagePasteOnComment
 # Usage
 
 # 説明
-- config/config_inc.php には右記の記述を追加してください。「$g_html_valid_tags = 'blockquote'; 」
+- config/config_inc.php には右記の記述を追加してください。「$g_html_valid_tags .= ',blockquote'; 」
 - テキストエリアへボタンやキーボードショートカットでタグを入れます。
 - テキストエリアへの拡張ボタンが出ます。
 - pre タグで囲むと明るい青枠で囲まれます。（キーボードショートカットはALT+p)
