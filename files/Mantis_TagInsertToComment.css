@@ -22,6 +22,10 @@ em {
              color: blue;
 }
 
+textarea#bugnote_text{
+            height: 350px;
+}
+
 /* ボタンのスタイルシート*/
 input#Mantis-TagInsertToComment_pre{
            padding: 5px;
@@ -36,6 +40,7 @@ input#Mantis-TagInsertToComment_blockquote{
 input#Mantis-TagInsertToComment_code{
            padding: 5px;
        margin-left: 10px;
+             color: darkorange;
 }
 input#Mantis-TagInsertToComment_strong{
            padding: 5px;

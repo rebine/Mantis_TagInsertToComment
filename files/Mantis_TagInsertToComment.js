@@ -21,6 +21,11 @@
           mantis_taginserttocomment_insert_textarea('',"blockquote");
         break;
 
+        // ALT + C code tag
+        case (alt_key) && (key_code == 67) && (key_type == "keydown") :
+          mantis_taginserttocomment_insert_textarea('',"code");
+        break;
+
         // Backspace
         case (key_code == 8) && (key_type == "keydown") :
                 //console.log(e);
@@ -62,7 +67,7 @@
     var ElementArray = [
            ["pre","pre(ALT+p)"],
            ["blockquote","blockquote(ALT+B)"],
-           ["code","code"],
+           ["code","code(ALT+C)"],
            ["strong","strong"],
            ["em","em"],
            ["image","image"]
