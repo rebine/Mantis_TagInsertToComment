@@ -18,9 +18,13 @@ https://github.com/rebine/Mantis_ImagePasteOnComment
 - blockquote タグで囲むと明るいオレンジ色で囲まれます。（キーボードショートカットはALT+b)
 - strong タグで囲むと赤文字になります。
 - em タグで囲むと青文字になります。
-- code、imageボタンは他のプラグインで拡張されたタグを入れます。
+- codeボタンはBBCodePlus（プラグイン)のハイライトコードになります。（キーボードショートカットはALT+c)
+https://github.com/mantisbt-plugins/BBCodePlus
+- imageボタンはMantis_ImagePasteOnComment(プラグイン)で拡張されたタグを入れます。
+https://github.com/rebine/Mantis_ImagePasteOnComment
 - バグ報告の一番上にスクロールするボタンがあります。（画像張り込みに便利です）
 - backspaseをinput タグ（特にテキストエリア）以外で禁止しています。Google Chrome52と同じ理由で。
+- Mangisbt 2.4.0からtextareaにID(bugnote_text)が入ったので、高さを350pxにしています。
 
 ##タグは、選択範囲次第で出力が変わります。
 - 選択範囲がないときにはテキストエリア文書の末尾に改行込みで入ります。
